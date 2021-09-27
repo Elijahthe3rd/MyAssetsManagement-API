@@ -2,7 +2,7 @@ package za.co.commandquality.AssetManagement.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.co.commandquality.AssetManagement.models.User;
+import za.co.commandquality.AssetManagement.models.user.User;
 import za.co.commandquality.AssetManagement.services.UserService;
 
 import java.sql.SQLException;
@@ -105,8 +105,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}" )
-    public void deleteById( @PathVariable( "id" ) UUID id ) {
-        userService.deleteById( id );
+    public int deleteById( @PathVariable( "id" ) UUID id ) {
+        return userService.deleteById( id );
     }
 
     @DeleteMapping
